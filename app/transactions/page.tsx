@@ -41,7 +41,7 @@ export default function TransactionsPage() {
 
   const searchParams = useSearchParams();
 
-  //초기 status 값 읽기 (없으면"ALL") 
+  //초기 status 값 읽기 (없으면"ALL")
   const initialStatus = (searchParams.get("status") as StatusFilter) || "ALL";
 
   // 필터 상태
@@ -55,7 +55,7 @@ export default function TransactionsPage() {
   const [page, setPage] = useState(1);
   const pageSize = 7;
 
- //  URL 쿼리가 변경될 때마다 상태 필터 동기화
+  //  URL 쿼리가 변경될 때마다 상태 필터 동기화
   useEffect(() => {
     setStatusFilter(initialStatus);
   }, [initialStatus]);
@@ -101,7 +101,12 @@ export default function TransactionsPage() {
 
   // 필터 적용된 거래내역
   const filteredPayments = useMemo(() => {
-    return payments.filter((p) => {
+    // 최신순 정렬 (paymentAt 기준)
+    const sorted = [...payments].sort(
+      (a, b) =>
+        new Date(b.paymentAt).getTime() - new Date(a.paymentAt).getTime()
+    );
+    return sorted.filter((p) => {
       // 상태 필터
       if (statusFilter !== "ALL" && p.status !== statusFilter) return false;
 
@@ -409,7 +414,7 @@ export default function TransactionsPage() {
                 type="button"
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className={`px-3 py-1 rounded-lg border ${
+                className={`px-3 py-1 rounded-lg border cursor-pointer ${
                   currentPage === 1
                     ? "border-gray-200 text-gray-300 cursor-not-allowed"
                     : "border-gray-300 hover:bg-gray-50"
@@ -421,7 +426,7 @@ export default function TransactionsPage() {
                 type="button"
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
-                className={`px-3 py-1 rounded-lg border ${
+                className={`px-3 py-1 rounded-lg border cursor-pointer ${
                   currentPage === totalPages
                     ? "border-gray-200 text-gray-300 cursor-not-allowed"
                     : "border-gray-300 hover:bg-gray-50"
