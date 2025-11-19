@@ -21,7 +21,7 @@
 
 * Chart.js
 
-* API 연동: https://recruit.paysbypays.com/api/v1/*
+* API 연동
 
 
 <기능 목록>
