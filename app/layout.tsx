@@ -54,7 +54,7 @@ export default function RootLayout({
             <Sidebar />
 
             {/* 페이지별 컨텐츠 */}
-            <main style={{ padding: "24px", backgroundColor: "#efefef", width: "100%" }}>{children}</main>
+            <main style={{ padding: "24px 36px", backgroundColor: "#efefef", width: "100%", height:"100vh" }}>{children}</main>
           </div>
         </ThemeProvider>
       </body>

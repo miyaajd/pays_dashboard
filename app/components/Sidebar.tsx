@@ -19,8 +19,8 @@ const menus = [
   },
   {
     id: 3,
-    title: "거래내역 종합",
-    icon: "fa-solid fa-folder",
+    title: "가맹점 조회",
+    icon: "fa-solid fa-shop",
     path: "",
   },
   {
@@ -38,9 +38,9 @@ export default function Sidebar() {
     <div className="max-w-65 flex flex-col h-full">
       {/* 로고 */}
       <img
-        src="/images/Allpays.png"
+        src="/images/allpays.png"
         alt="logo"
-        className="py-12 px-8 w-[80%] cursor-pointer"
+        className="py-12 px-8 w-[80%] cursor-pointer mx-auto"
         onClick={() => router.push("/dashboard")}
       />
       {/* 메뉴 */}
@@ -50,7 +50,7 @@ export default function Sidebar() {
             key={m.id}
             className={`py-3 px-3 rounded-md hover:bg-gray-100 transition ${
               pathname === m.path
-                ? "shadow-md bg-gray-100 opacity-100 font-bold"
+                ? "shadow-md bg-gray-100 text-[#4381ff] font-bold"
                 : "hover:shadow-md opacity-60 font-semibold"
             }`}
           >
@@ -63,13 +63,13 @@ export default function Sidebar() {
       </ul>
       {/* 하단메뉴 */}
       <ul className="flex px-9 text-[1.7rem] justify-between border-t border-gray-300 py-6 mt-auto">
-        <li className="opacity-70 hover:opacity-100 cursor-pointer transition">
+        <li className="opacity-70 hover:text-[#4381ff] cursor-pointer transition">
           <i className="fa-solid fa-gear"></i>
         </li>
-        <li className="opacity-70 hover:opacity-100 cursor-pointer transition">
+        <li className="opacity-70 hover:text-[#4381ff] cursor-pointer transition">
           <i className="fa-solid fa-headset"></i>
         </li>
-        <li className="opacity-70 hover:opacity-100 cursor-pointer transition">
+        <li className="opacity-70 hover:text-[#4381ff] cursor-pointer transition">
           <i className="fa-solid fa-arrow-right-from-bracket"></i>
         </li>
       </ul>
