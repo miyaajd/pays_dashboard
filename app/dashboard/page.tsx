@@ -344,7 +344,7 @@ export default function DashboardPage() {
                   </div>
 
                   {/* 오른쪽: 매출액 */}
-                  <p className="text-base font-semibold text-[#4381ff]">
+                  <p className="text-base font-semibold text-[#4381ff] ml-auto">
                     {m.revenue.toLocaleString()}원
                   </p>
                 </li>
