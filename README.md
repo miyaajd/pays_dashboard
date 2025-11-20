@@ -53,13 +53,6 @@
 * URL 쿼리로 상태분기 (예: ?status=SUCCESS)
 
 
-<사용한 스타일 방식>
-
-* Utility-first CSS 프레임워크
-
-* 설치 및 셋업 후 전역 스타일(globals.css)과 클래스 조합을 통해 UI 스타일링 구성
-
-
 <직접 디자인한 이유 & UI/UX 포인트>
 
 // 디자인 의도 //
